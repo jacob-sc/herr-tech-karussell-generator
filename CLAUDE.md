@@ -142,3 +142,38 @@ Glückwunsch sagen. Drei Hinweise:
 - **`src/components/carousel/SlideFrame.tsx`** — die zentrale Slide-Render-Komponente
 
 Wenn der User Slide-Typen anpassen will (z.B. neue Sektion einfügen, anderes Layout), führ ihn durch `slides.ts` (Schema) → API-Route (Prompt updaten) → `SlideFrame.tsx` (Render-Logik).
+
+---
+
+## 🎨 Branding-Frage — am Ende des Setups stellen
+
+**Wichtig: Sobald das erste Karussell generiert ist, frag aktiv:**
+
+> *„Das Tool hat aktuell Herr-Tech-Branding im UI:
+> - Logo oben links + ‚/ karussell-generator' Subtext
+> - Footer: ‚© herr.tech · Karussell-Generator · Built with Herr Tech Starter Tools'
+> - Default-Style-Preset ‚Herr Tech Lila' (`#B598E2`) — kann auf jeden Slide neu gewählt werden
+>
+> Willst du das UI-Branding so behalten oder durch dein eigenes ersetzen?
+>
+> (Davon getrennt: das **Karussell-Output** wird ja eh in deinem Branding generiert — das ist über das CI-Panel im Tool steuerbar.)"*
+
+### Wenn der User UI-Branding ändern will
+
+Frag nach:
+- **Brand-Name** (für Top-Bar-Text + Footer)
+- **Primärfarbe** als Hex (z.B. `#FF3D7F`) — ersetzt das Lavendel im UI
+- **Logo-Datei** (PNG/SVG, am besten transparenter Hintergrund, Höhe ~36px gut)
+- **Domain** für Footer (z.B. `frau.tech` statt `herr.tech`)
+
+### Was du touchen musst
+
+- **`public/herr-tech-logo.png`** → durch User-Logo ersetzen (oder neues File anlegen + Pfad in `layout.tsx` updaten)
+- **`src/app/layout.tsx`** → Top-Bar-Subtext + Footer-Text anpassen, Logo-Pfad evtl. ändern
+- **`src/app/globals.css`** → CSS-Variable `--primary` (aktuell `#B598E2`) auf User-Primärfarbe setzen
+- **`src/app/CarouselWorkflow.tsx`** → wenn der User auch das Default-Preset austauschen will: `STYLE_PRESETS[0]` anpassen oder eigenes Preset oben in die Liste setzen
+- **`src/app/layout.tsx` Metadata `title`** → z.B. „Karussell-Generator — Frau Tech"
+
+### Standard-Default behalten
+
+Wenn der User „passt schon" sagt: nichts ändern. Das Branding ist dezent (kleines Logo + Footer-Zeile) und der Karussell-Output selbst ist immer in seinem CI dank des Style-Pickers.
