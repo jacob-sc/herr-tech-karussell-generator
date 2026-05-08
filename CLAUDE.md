@@ -69,7 +69,7 @@ EOF
 npm install
 ```
 
-Erkläre: *„Lädt jetzt alle Code-Pakete runter (Next.js, React, Anthropic SDK, html-to-image, jszip, pptxgenjs für die Exports). Dauert 1–2 Minuten beim ersten Mal."*
+Erkläre: *„Lädt jetzt alle Code-Pakete runter (Next.js, React, Anthropic SDK, html2canvas, jszip, pptxgenjs für die Exports). Dauert 1–2 Minuten beim ersten Mal."*
 
 ## 5. Dev-Server starten
 
@@ -137,7 +137,7 @@ Glückwunsch sagen. Drei Hinweise:
 - **`src/app/api/carousel/extract-url/route.ts`** — Website-URL scrapen → Brand-Farbe extrahieren
 - **`src/lib/carousel/slides.ts`** — Slide-Typen-Schema (hero/problem/solution/...) + Default-Slides
 - **`src/lib/carousel/palette.ts`** — Primärfarbe → komplette Brand-Palette ableiten
-- **`src/lib/carousel/export-png.ts`** — html-to-image + jszip
+- **`src/lib/carousel/export-png.ts`** — html2canvas + jszip
 - **`src/lib/carousel/export-pptx.ts`** — pptxgenjs
 - **`src/components/carousel/SlideFrame.tsx`** — die zentrale Slide-Render-Komponente
 
